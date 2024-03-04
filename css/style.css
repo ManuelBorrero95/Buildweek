@@ -1,4 +1,42 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+body {
+    background-image: url(/assets/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+ }
+ header  {
+    padding: 4rem;
+ }
+ .logo img {
+    height: 150px;
+ }
+.container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-top: 4rem;
+}
+.banner h1 {
+    color: #fff;
+    font-size: 10rem;
+}
+.titolo  {
+    display: flex;
+    flex-direction: column;
+}
+.titolo div {
+    color: #fff;
+    font-size: 10rem;
+}
+.titolo div:last-child {
+    font-weight: 600;
+}
+.instruction {
+    color: blueviolet;
+    font-size: 6rem;
+}
+
