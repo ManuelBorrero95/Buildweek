@@ -3,57 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <!-- style common part -->
+    <!-- Descrizione pagina -->
+    <meta name="description" content="Exam Epicode, Corso Epicode, Web Developer">
+    <!-- Parole chiave -->
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <!-- Autori -->
+    <meta author="Gruppo 2 - Epicode">
+    <title>EPICODE - Welcome to your examen</title>
+    
+    <!-- Style CSS -->
     <link rel="stylesheet" href="/css/style.css">
-     <!-- style Index-->
-    <link rel="stylesheet" href="/css/index.css">
-    <script src="/js/index.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
+        <!-- Logo aziendale -->
          <div class="logo">
-           <img src="assets/epicode_logo.png" alt="Logo">
+           <img src="assets/epicode_logo.png" alt="Logo aziendale">
          </div>
     </header>
-
     <div class="container">
-
-        <div class="banner">
-            <!-- titolo -->
-         <div class="titolo">
-            <div>Welcome to</div>
-            <div>your exam</div>
-          
-        </div>
-        </div>
-        <p class="instruction">
-            Instructions
-        </p>
-       <!--  testo istruzioni -->
-        <div>
-
-            We don't expect most engineers to know the answers to all of these questions, so dont't worry if you're unsure of a few of them.
-
-           <!--  elenco puntato delle istruzioni -->
-           <ul>
-            <li>ist1 </li>
-            <li>ist2</li>
-            <li>ist 2</li>
-           </ul>
-
-        </div>
-        <div class="check">
-            <div>
-                <input type="checkbox">
-                <label for="checkbox"> i promissssssss</label> 
-            </div>
-            <div id="btn-proceed"class="btn">
-                Proceed
-            </div>
+        
+        <!-- Titolo -->
+        <div class="title">
+            <h1>Welcome to</h1>
+            <h1>your exam</h1>
         </div>
 
+        <!-- Testo istruzioni -->
+        <p class="instruction">Instructions</p>
+        <div class="text">
+            <p>We don't expect most engineers to know the answers to all of these</p>
+            <p>questions, so dont't worry if you're unsure of a few of them.</p>  
+        </div>
+
+        <!-- Elenco puntato delle istruzioni -->
+        <ul>
+            <li>Each question is <span>timed</span> anc can only be <span>answered once.</span></li>
+            <li>Changing browser tab or opening other windows will <span>invalidate the question.</span></li>
+            <li>This exam will take approx. <span>0-5 minutes.</span></li>
+        </ul>
     </div>
 
+    <!-- Check box di accettare le condizioni e button per iniziare l'esame -->
+    <div class="checkDiv">
+        <div>
+            <input type="checkbox" id="promiseCheck">
+            <label for="checkbox">I promise to answer myself wothout help from anyone</label> 
+        </div>
+        <div class="proceedBtn">
+            <button>proceed</button>
+        </div>
+    </div>
+
+    <!-- Script javascript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
