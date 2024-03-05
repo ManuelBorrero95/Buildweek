@@ -1,42 +1,88 @@
-*{
+/* 
+    Style CSS
+    Gruppo n. 2
+
+*/
+
+/* Reset CSS */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
 }
+
+/* Body */
 body {
     background-image: url(/assets/bg.jpg);
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
- }
- header  {
-    padding: 4rem;
- }
- .logo img {
-    height: 150px;
- }
+    background-attachment: fixed;  
+}
+
+/* header */
+header  {
+    padding: 4rem 0 0 6rem ;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+}
+
+/* Container */
 .container {
-    padding-left: 4rem;
+    padding-left: 6rem;
     padding-right: 4rem;
     margin-top: 4rem;
 }
-.banner h1 {
-    color: #fff;
-    font-size: 10rem;
-}
-.titolo  {
+
+/* Titolo principale */
+.title  {
     display: flex;
     flex-direction: column;
 }
-.titolo div {
+
+.title h1 {
     color: #fff;
-    font-size: 10rem;
+    font-size: 60px;
 }
-.titolo div:last-child {
+
+.title h1:last-child {
     font-weight: 600;
+    margin-top: -30px;
 }
+
+/* Instruzioni */
 .instruction {
-    color: blueviolet;
-    font-size: 6rem;
+    margin-top: 2rem;
+    color: #d20094;
+    font-size: 2rem;
+}
+
+/* impaginiazione testo */
+.text {
+    color: #fff;
+}
+
+/* Checkbox */
+.checkDiv {
+    display: flex;
+    margin-top: 4rem;
+    padding-left: 6rem;
+}
+
+/* Elenco condizioni d'uso */
+ul li {
+    color: #fff;
+}
+
+label {
+    color: #fff;
+}
+
+/* Button inizo esame */
+button {
+    padding: 20px;
 }
 
