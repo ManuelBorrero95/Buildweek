@@ -90,8 +90,8 @@
     border: 3px solid transparent;
     background: linear-gradient(180deg, #fff, transparent) border-box;
     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  /*   -webkit-mask-composite: xor; */
-/*     mask-composite: exclude; */
+/*     -webkit-mask-composite: xor;
+    mask-composite: exclude; */
   }
   .optns button:active {
     background-color: rgba(199, 1, 144, 1);
@@ -102,3 +102,5 @@
     align-items: center;
     justify-content: space-around;
   }
+
+  #cnt-answers p { z-index:999}

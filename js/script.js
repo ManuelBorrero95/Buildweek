@@ -137,13 +137,13 @@
           case "multiple":
             questions[questionNumber].incorrect_answers.forEach(element => {
               
-              htmlAnswers = htmlAnswers + `<button>${element}</button> \n`
+              htmlAnswers = htmlAnswers + `<button class="incorrect">${element}</button> \n`
             });
-            htmlAnswers = htmlAnswers + `<button>${questions[questionNumber].correct_answer}</button> \n`
+            htmlAnswers = htmlAnswers + `<button class="correct">${questions[questionNumber].correct_answer}</button> \n`
             console.log(htmlAnswers);
             console.log( document.getElementById("cnt-answers"));
             document.getElementById("cnt-answers").innerHTML = htmlAnswers;
-
+            questionNumber += 1; 
             break;
           case "boolean":
 
@@ -155,5 +155,18 @@
         }
         questionNumber++;
     }
+
+
+  let incorrects = document.getElementsByClassName("incorrect");
+
+
+  
+    incorrects.forEach(element => {
+      
+      element.addEventListener("click", function(){
+        nextQuestion();
+      })
+
+    });
 
 
