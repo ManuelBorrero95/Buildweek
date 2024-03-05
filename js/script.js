@@ -106,6 +106,16 @@
 
       nextQuestion();
 
+      let countdownNumberEl = document.getElementById('countdown-number');
+      let countdown = 30;
+      countdownNumberEl.textContent = 30;
+      
+      setInterval(()=>{
+        countdown = --countdown <= 0 ? 10 : countdown;
+
+      
+        countdownNumberEl.textContent = countdown;
+      }, 1000);
 
     });
 
@@ -120,17 +130,25 @@
                         ${questions[questionNumber].question}
                       </div>`
                       
-       console.log(document.getElementById("cnt-question"))
        document.getElementById("cnt-question").innerHTML = htmlQuestion;
+      console.log(document.getElementById("cnt-answers"))
 
       switch(questions[questionNumber].type){
           case "multiple":
-            
-          htmlAnswers  = `<div class="cnt-question">
-                            ${questions[questionNumber].question}
-                          </div>`
+            questions[questionNumber].incorrect_answers.forEach(element => {
+              
+              htmlAnswers = htmlAnswers + `<button>${element}</button> \n`
+            });
+            htmlAnswers = htmlAnswers + `<button>${questions[questionNumber].correct_answer}</button> \n`
+            console.log(htmlAnswers);
+            console.log( document.getElementById("cnt-answers"));
+            document.getElementById("cnt-answers").innerHTML = htmlAnswers;
+
             break;
           case "boolean":
+
+
+
             break;
           default:
             break;
@@ -138,8 +156,4 @@
         questionNumber++;
     }
 
-    document.getElementById("btn-proceed").addEventListener("click",()=>{
-      window.location.href ="question.html"
-
-  });
 
