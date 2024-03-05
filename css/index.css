@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-top: 4rem;
+}
+.banner h1 {
+    color: #fff;
+    font-size: 10rem;
+}
+.titolo  {
+    display: flex;
+    flex-direction: column;
+}
+.titolo div {
+    color: #fff;
+    font-size: 10rem;
+}
+.titolo div:last-child {
+    font-weight: 600;
+}
+.instruction {
+    color: blueviolet;
+    font-size: 6rem;
+}
+
+/* stilizzo un po' il bottone per poterlo vedere */
+
+.btn{
+    height: 100px;
+    width: 200px;
+    background-color: aqua;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+

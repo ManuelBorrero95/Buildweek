@@ -17,6 +17,7 @@ body {
     background-image: url(/assets/bg.jpg);
     background-position: center;
     background-size: cover;
+<<<<<<< HEAD
     background-attachment: fixed;  
 }
 
@@ -86,3 +87,13 @@ button {
     padding: 20px;
 }
 
+=======
+    background-attachment: fixed;
+ }
+ header  {
+    padding: 4rem;
+ }
+ .logo img {
+    height: 150px;
+ }
+>>>>>>> 386cfebc44b686993afa9caf8c400ccb37a49450
