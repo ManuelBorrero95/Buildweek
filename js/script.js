@@ -97,3 +97,36 @@
         incorrect_answers: ["Python", "C", "Jakarta"],
       },
     ];
+
+
+    let questionNumber = 0;
+    document.addEventListener("DOMContentLoaded",()=>{
+      
+      nextQuestion();
+
+      function nextQuestion(){
+
+        let htmlAnswers = "";
+        let htmlQuestion = `<div class="cnt-question">
+                          ${questions[questionNumber].question}
+                        </div>`
+                        
+         console.log(document.getElementById("cnt-question"))
+         document.getElementById("cnt-question").innerHTML = htmlQuestion;
+  
+        switch(questions[questionNumber].type){
+            case "multiple":
+              
+            htmlAnswers  = `<div class="cnt-question">
+                              ${questions[questionNumber].question}
+                            </div>`
+              break;
+            case "boolean":
+              break;
+            default:
+              break;
+          }
+          questionNumber++;
+      }
+    });
+
