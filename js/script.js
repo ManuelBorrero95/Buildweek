@@ -117,6 +117,36 @@
         countdownNumberEl.textContent = countdown;
       }, 1000);
 
+
+
+    let incorrects = document.querySelectorAll(".incorrect");
+
+
+  
+    incorrects.forEach(element => {
+      
+      element.addEventListener("click", function(){
+        nextQuestion();
+      })
+
+    });
+
+
+    
+    let corrects = document.querySelectorAll(".correct");
+
+
+  
+    corrects.forEach(element => {
+      
+      element.addEventListener("click", function(){
+        nextQuestion();
+      })
+
+    });
+
+
+
     });
 
     /* 
@@ -157,16 +187,4 @@
     }
 
 
-  let incorrects = document.querySelectorAll(".form-control");
-
-
   
-    incorrects.forEach(element => {
-      
-      element.addEventListener("click", function(){
-        nextQuestion();
-      })
-
-    });
-
-
