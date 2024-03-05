@@ -157,7 +157,7 @@
     }
 
 
-  let incorrects = document.getElementsByClassName("incorrect");
+  let incorrects = document.querySelectorAll(".form-control");
 
 
   
