@@ -99,40 +99,46 @@
     ];
 
 
+    //variabile che serve per tenere il conto del numero della domanda
     let questionNumber = 0;
     document.addEventListener("DOMContentLoaded",()=>{
-      
+      //aspetto il caricamento del documento e prendo la prima domanda dell'array delle domande
 
       nextQuestion();
 
-      function nextQuestion(){
 
-        let htmlAnswers = "";
-        let htmlQuestion = `<div class="cnt-question">
-                          ${questions[questionNumber].question}
-                        </div>`
-                        
-         console.log(document.getElementById("cnt-question"))
-         document.getElementById("cnt-question").innerHTML = htmlQuestion;
-  
-        switch(questions[questionNumber].type){
-            case "multiple":
-              
-            htmlAnswers  = `<div class="cnt-question">
-                              ${questions[questionNumber].question}
-                            </div>`
-              break;
-            case "boolean":
-              break;
-            default:
-              break;
-          }
-          questionNumber++;
-      }
     });
 
-    document.getElementById("btn-proceed").addEventListener("click",()=>{
+    /* 
+      questa funziona utilizza la varibiale questionNumber per estrarre dall'array 
+      delle domanda la domanda e le relative risposte 
+    */
+    function nextQuestion(){
 
+      let htmlAnswers = "";
+      let htmlQuestion = `<div class="cnt-question">
+                        ${questions[questionNumber].question}
+                      </div>`
+                      
+       console.log(document.getElementById("cnt-question"))
+       document.getElementById("cnt-question").innerHTML = htmlQuestion;
+
+      switch(questions[questionNumber].type){
+          case "multiple":
+            
+          htmlAnswers  = `<div class="cnt-question">
+                            ${questions[questionNumber].question}
+                          </div>`
+            break;
+          case "boolean":
+            break;
+          default:
+            break;
+        }
+        questionNumber++;
+    }
+
+    document.getElementById("btn-proceed").addEventListener("click",()=>{
       window.location.href ="question.html"
 
   });
