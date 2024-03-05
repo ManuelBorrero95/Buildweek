@@ -102,6 +102,7 @@
     let questionNumber = 0;
     document.addEventListener("DOMContentLoaded",()=>{
       
+
       nextQuestion();
 
       function nextQuestion(){
@@ -129,4 +130,10 @@
           questionNumber++;
       }
     });
+
+    document.getElementById("btn-proceed").addEventListener("click",()=>{
+
+      window.location.href ="question.html"
+
+  });
 
