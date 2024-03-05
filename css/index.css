@@ -1,3 +1,36 @@
+/* 
+    Style CSS
+    Gruppo n. 2
+
+*/
+
+/* Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+
+/* Body */
+body {
+    background-image: url(/assets/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;  
+}
+
+/* Header */
+header  {
+    padding: 4rem 0 0 6rem ;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+}
+
+/* Container */
 .container {
     padding-left: 6rem;
     padding-right: 4rem;
@@ -10,42 +43,50 @@
     flex-direction: column;
 }
 
-.title h1 {
-    color: #fff;
+.title div {
+    color: #FFF;
     font-size: 60px;
+    font-weight: 300;
 }
 
-.title h1:last-child {
+.title div:last-child {
     font-weight: 600;
-    margin-top: -30px;
+    margin-top: -30px; 
 }
 
 /* Instruzioni */
 .instruction {
-    margin-top: 2rem;
+    margin: 1.2rem 0 1.1rem 0;
     color: #d20094;
     font-size: 2rem;
 }
 
-/* impaginiazione testo */
+/* Impaginiazione testo */
 .text {
-    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 16px;
 }
 
-/* Checkbox */
-.checkDiv {
-    display: flex;
-    margin-top: 4rem;
-    padding-left: 6rem;
+ul {
+    padding: 1.5rem;
+}
+
+.text p {
+    color: #FFF;
+    font-size: 16px;
+}
+
+.list ul {
+    margin-left: 6rem;
 }
 
 /* Elenco condizioni d'uso */
 ul li {
-    color: #fff;
+    color: #FFF;
 }
 
 label {
-    color: #fff;
+    color: #FFF;
 }
 
 /* Button inizo esame */
@@ -53,16 +94,53 @@ button {
     padding: 20px;
 }
 
-/* stilizzo un po' il bottone per poterlo vedere */
-/* .btn {
-    height: 100px;
-    width: 200px;
-    background-color: aqua;
-    border-radius: 5px;
+/* Checkbox */
+.checkDiv {
+    display: flex;
+    margin-top: 4rem;
+    padding-left: 6rem;
+    gap: 20rem;
+    align-items: center;
+}
+
+.check {
+    display: flex;
+    gap: 10px;
+}
+
+.check input[type="checkbox"] {
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #FFF;
+    background-color: #00FFFF;
+}
+
+/* Button stilizzato */
+.proceedBtn a {
+    text-decoration: none;
+}
+
+.btn {
+    height: 60px;
+    width: 220px;
+    background-color: #00FFFF;
+    border: 0;
+    box-shadow: 5px 5px 16px 16px rgba(0,255,255,0.35);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-} */
+}
+
+.btn span {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn:hover span {
+    color: #FFF;
+}
 
 

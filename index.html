@@ -12,7 +12,7 @@
     <title>EPICODE - Welcome to your examen</title>
     
     <!-- Style CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,7 @@
 </head>
 <body>
     <header>
+
         <!-- Logo aziendale -->
          <div class="logo">
            <img src="assets/epicode_logo.png" alt="Logo aziendale">
@@ -31,8 +32,8 @@
         
         <!-- Titolo -->
         <div class="title">
-            <h1>Welcome to</h1>
-            <h1>your exam</h1>
+            <div>Welcome to</div>
+            <div>your exam</div>
         </div>
 
         <!-- Testo istruzioni -->
@@ -43,7 +44,7 @@
         </div>
 
         <!-- Elenco puntato delle istruzioni -->
-        <ul>
+        <ul class="list">
             <li>Each question is <span>timed</span> anc can only be <span>answered once.</span></li>
             <li>Changing browser tab or opening other windows will <span>invalidate the question.</span></li>
             <li>This exam will take approx. <span>0-5 minutes.</span></li>
@@ -52,12 +53,12 @@
 
     <!-- Check box di accettare le condizioni e button per iniziare l'esame -->
     <div class="checkDiv">
-        <div>
+        <div class="check">
             <input type="checkbox" id="promiseCheck">
             <label for="checkbox">I promise to answer myself wothout help from anyone</label> 
         </div>
         <div class="proceedBtn">
-            <button id="btn-proceed">proceed</button>
+            <a href="question.html"><button class="btn"><span>proceed</span></button></a>
         </div>
     </div>
 
