@@ -117,7 +117,7 @@
         countdownNumberEl.textContent = countdown;
       }, 1000);
 
-
+      //domande errate
 
     let incorrects = document.querySelectorAll(".incorrect");
 
@@ -131,7 +131,7 @@
 
     });
 
-
+    //domande corrette
     
     let corrects = document.querySelectorAll(".correct");
 
@@ -145,9 +145,43 @@
 
     });
 
+    
+      //domande  booleane corrette
+
+      let booleanCorrect = document.querySelectorAll(".boolCorrect");
+
+
+  
+      booleanCorrect.forEach(element => {
+        
+        element.addEventListener("click", function(){
+          nextQuestion();
+        })
+  
+      });
+
+
+        
+      //domande  booleane corrette
+
+      let booleanIncorrect = document.querySelectorAll(".boolIncorrect");
+
+
+  
+      booleanIncorrect.forEach(element => {
+        
+        element.addEventListener("click", function(){
+          nextQuestion();
+        })
+  
+      });
+
 
 
     });
+
+
+    
 
     /* 
       questa funziona utilizza la varibiale questionNumber per estrarre dall'array 
@@ -176,6 +210,20 @@
             questionNumber += 1; 
             break;
           case "boolean":
+
+          //creo funzione per le booleane
+          questions[questionNumber].incorrect_answers.forEach(element => {
+              
+            htmlAnswers = htmlAnswers + `<button class="boolIncorrect">${element}</button> \n`
+          });
+          htmlAnswers = htmlAnswers + `<button class="boolCorrect">${questions[questionNumber].correct_answer}</button> \n`
+          console.log(htmlAnswers);
+          console.log( document.getElementById("cnt-answers"));
+          document.getElementById("cnt-answers").innerHTML = htmlAnswers;
+          questionNumber += 1; 
+
+          break;
+
 
 
 
