@@ -117,6 +117,25 @@
         countdownNumberEl.textContent = countdown;
       }, 1000);
 
+    
+    
+    
+    
+    let incorrects = document.querySelectorAll(".incorrect");
+    console.log(incorrects);
+
+
+  
+    incorrects.forEach(element => {
+      
+      element.addEventListener("click", function(){
+        nextQuestion();
+      })
+
+    });
+
+    
+    
     });
 
     /* 
@@ -156,17 +175,5 @@
         questionNumber++;
     }
 
-
-  let incorrects = document.querySelectorAll(".form-control");
-
-
-  
-    incorrects.forEach(element => {
-      
-      element.addEventListener("click", function(){
-        nextQuestion();
-      })
-
-    });
 
 
