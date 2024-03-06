@@ -23,6 +23,3 @@ style.css --> contiene lo stile comune ad entrambe la pagine (font,background ec
 la pagina index.html verrà sviluppata e gestita da Gianluca Mirko Giulia.<br>
 la pagina question.html verrà sviluppata e gestita da Genisis,Eli,Antonio e Manuel
 La parte di lavoro legata al js verra sviluppata dal gruppo durante le lezioni.
-
-
- 
