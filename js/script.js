@@ -97,7 +97,6 @@ const questions = [
 // variabile che serve per tenere il conto del numero della domanda
 let questionNumber = 0;
 
-// Array domande corrects = 1 e incorrects = 0
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
