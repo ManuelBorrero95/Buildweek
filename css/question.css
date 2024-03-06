@@ -75,7 +75,7 @@
 /* 
   bottoni */
 
-/*Ho modificato solo questa parte: Genesis*/
+/*Ho modificato solo questa parte*/
   .cnt-answers button {
     background-color: rgba(35, 41, 79, 0.35);
   width: 300px;
@@ -85,8 +85,6 @@
   transition: 0.3s;
   color: #fff;
   backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
-  outline: none;
   border: none;
   }
 /*Risolto il bug dei pulsanti*/
@@ -101,8 +99,6 @@
   border: 3px solid transparent;
   background: linear-gradient(180deg, #fff, transparent) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
   .cnt-answers button:active {
