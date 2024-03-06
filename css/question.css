@@ -103,4 +103,11 @@
     justify-content: space-around;
   }
 
+
   #cnt-answers p { z-index:999}
+
+  .cnt-question-counter{
+    color: white;
+    font-size: 35px;
+    
+  }
