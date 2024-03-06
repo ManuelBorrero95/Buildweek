@@ -81,7 +81,7 @@ svg circle {
 /* bottoni */
 /* Ho modificato solo questa parte*/
 .cnt-answers button {
-	background-color: rgba(35, 41, 79, 0.35);
+	background-color: rgba(35, 41, 79, 0.15);
  	width: 300px;
   	height: 60px;
   	border-radius: 50px;
@@ -112,19 +112,38 @@ svg circle {
 }
 
 /*=====Fine modifica=====*/
-.cnt-answers {
-	display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+.cnt {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
-#cnt-answers p { 
-	z-index:999
+.cnt-answers {
+  width: 800px;
+}
+
+.cnt-answers button:first-child,
+.cnt-answers button:nth-child(3) {
+  margin-right: 2rem;
+}
+
+.cnt-answers button:first-child,
+.cnt-answers button:nth-child(2) {
+  margin-bottom: 1rem;
 }
 
 .cnt-question-counter {
-	color: white;
-    font-size: 35px;
-    
+  color: white;
+  font-size: 1rem;
+  margin-top: 7rem;
+}
+
+.cnt-question {
+  margin-bottom: 2rem;
+}
+
+header {
+  display: flex;
 }
