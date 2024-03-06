@@ -3,42 +3,106 @@
     Gruppo n. 2
 
 */
-
-.container {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    margin-top: 4rem;
-}
-
+ .container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin-top: 4rem;
+} 
+ 
 .cnt {
-    padding-left: 4rem;
-    padding-right: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .cnt-question {
-    color: #fff;
-    font-weight: 600;
-    font-size: 35px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 35px;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
 }
 
-.answer {
-    background-color: red;
-    border: solid 1px #fff;
-    border-radius: 25px;
-    width: 260px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    word-wrap: break-word;
+/* bottoni */
+/* Ho modificato solo questa parte*/
+.cnt-answers button {
+background-color: rgba(35, 41, 79, 0.15);
+ width: 300px;
+  height: 60px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+  backdrop-filter: blur(7.5px);
+  border: none;
+}
+
+/*Risolto il bug dei pulsanti*/
+.cnt-answers button::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+border-radius: 50px;
+border: 3px solid transparent;
+background: linear-gradient(180deg, #fff, transparent) border-box;
+-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+mask-composite: exclude;
+}
+
+.cnt-answers button:active {
+background-color: rgba(199, 1, 144, 1);
+}
+
+/*=====Fine modifica=====*/
+.cnt {
+display: flex;
+flex-direction: column;
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+
+.cnt-answers {
+width: 800px;
+}
+
+.cnt-answers button:first-child,
+.cnt-answers button:nth-child(3) {
+margin-right: 2rem;
+}
+
+.cnt-answers button:first-child,
+.cnt-answers button:nth-child(2) {
+margin-bottom: 1rem;
+}
+
+.cnt-question-counter {
+color: white;
+font-size: 1.3rem;
+margin-top: 7rem;
+font-weight: 400;
+
+}
+
+.cnt-question-counter span{
+  color: #D20094;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+header{
+  display: flex;
+  justify-content: space-around;
 }
 
 /* countdown */
 
 .base-timer {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
 }
 
 .base-timer__svg {
@@ -51,12 +115,12 @@
 }
 
 .base-timer__path-elapsed {
-  stroke-width: 7px;
-  stroke: grey;
+  stroke-width: 10px;
+  stroke: rgba(128, 128, 128, 0.7);
 }
 
 .base-timer__path-remaining {
-  stroke-width: 7px;
+  stroke-width: 10px;
   stroke-linecap: round;
   transform: rotate(90deg);
   transform-origin: center;
@@ -66,7 +130,7 @@
 }
 
 .base-timer__path-remaining.green {
-  color: rgb(65, 184, 131);
+  color: #00FFFF;
 }
 
 .base-timer__path-remaining.orange {
@@ -77,57 +141,25 @@
   color: red;
 }
 
-.base-timer__label {
+.timer-label-container{
   position: absolute;
-  width: 300px;
-  height: 300px;
-  top: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: 48px;
+  top: 23px;
+  font-size: 8px;
+  left: 30px;
+  color: white;
 }
 
-
-
-/* fine countdown */
-
-/* 
-  bottoni */
-
-
-  .cnt-answers button {
-    background-color: rgba(35, 41, 79, 0.35);
-    width: 300px;
-    height: 60px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-    color: #fff;
-    backdrop-filter: blur(7.5px);
-    -webkit-backdrop-filter: blur(7.5px);
-    outline: none;
-    border: 3px solid transparent;
-    background: linear-gradient(180deg, #fff, transparent) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-/*     -webkit-mask-composite: xor;
-    mask-composite: exclude; */
-  }
-  .optns button:active {
-    background-color: rgba(199, 1, 144, 1);
-  }
-  .cnt-answers{
+.base-timer__label {
+  /*   position: absolute; */
+    width: 35px;
+    height: 35px;
+    top: 0;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    font-size: 32px;
   }
-
-
-  #cnt-answers p { z-index:999}
-
-  .cnt-question-counter{
-    color: white;
-    font-size: 35px;
-    
-  }
+/* fine countdown */

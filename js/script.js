@@ -99,7 +99,7 @@ let questionNumber = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
+
   // aspetto il caricamento del documento e prendo la prima domanda dell'array delle domande
   nextQuestion();
   updateQuestionCounter();
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   
-  const TIME_LIMIT = 30;
+  const TIME_LIMIT = 120;
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let timerInterval = null;
@@ -152,18 +152,27 @@ document.addEventListener("DOMContentLoaded", () => {
         ></path>
       </g>
     </svg>
-    <span id="base-timer-label" class="base-timer__label">${formatTime(
-      timeLeft
-    )}</span>
+    <div class="timer-label-container">
+      <span>SECONDS</span>
+      <span id="base-timer-label" class="base-timer__label">${formatTime(timeLeft)}</span>
+      <span>REMAINING</span>
+    </div>
+
   </div>
+
   `;
   
   startTimer();
   
   function onTimesUp() {
-    //clearInterval(timerInterval);
+     clearInterval(timerInterval);
      timePassed = 0;
      timeLeft = 30;
+     document.getElementById("base-timer-path-remaining").classList.remove("red");
+     document.getElementById("base-timer-path-remaining").classList.add("green");     
+     nextQuestion();
+     startTimer();
+
   }
   
   function startTimer() {
@@ -174,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         timeLeft
       );
       setCircleDasharray();
-      setRemainingPathColor(); 
+      setRemainingPathColor(timeLeft); 
   
       if (timeLeft === 0) {
         onTimesUp();
@@ -184,13 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
+    let seconds = time;
   
     if (seconds < 10) {
       seconds = `0${seconds}`;
     }
   
-    return `${minutes}:${seconds}`;
+    return `${seconds}`;
   }
   
 function setRemainingPathColor(timeLeft) {
@@ -229,87 +238,88 @@ function setRemainingPathColor(timeLeft) {
 
   //fine timer
 
-
-
-
-
-
-});
-
 /* 
         Questa funziona utilizza la varibiale questionNumber per estrarre dall'array 
         delle domanda la domanda e le relative risposte 
     */
-function nextQuestion() {
-  if (questionNumber < questions.length) {
-    // legge e stampa su display la domanda
-    let htmlAnswers = "";
-    let htmlQuestion = `<div class="cnt-question">
-                        ${questions[questionNumber].question}
-                        </div>`;
 
-    document.getElementById("cnt-question").innerHTML = htmlQuestion;
-    switch (questions[questionNumber].type) {
-      case "multiple":
-        // ciclo for per leggere il contenuto delle risposte sbagliate
-        questions[questionNumber].incorrect_answers.forEach((element) => {
-          htmlAnswers =
-            htmlAnswers + `<button class="incorrect">${element}</button> \n`;
+  function nextQuestion() {
+    if (questionNumber < questions.length) {
+      // legge e stampa su display la domanda
+      let htmlAnswers = "";
+      let htmlQuestion = `<div class="cnt-question">
+                          ${questions[questionNumber].question}
+                          </div>`;
+  
+      document.getElementById("cnt-question").innerHTML = htmlQuestion;
+      switch (questions[questionNumber].type) {
+        case "multiple":
+          // ciclo for per leggere il contenuto delle risposte sbagliate
+          questions[questionNumber].incorrect_answers.forEach((element) => {
+            htmlAnswers =
+              htmlAnswers + `<button class="incorrect">${element}</button> \n`;
+          });
+          // legge e stampa la risposta corretta
+          htmlAnswers = htmlAnswers + `<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
+          document.getElementById("cnt-answers").innerHTML = htmlAnswers;
+          questionNumber += 1;
+          break;
+  
+        case "boolean":
+          // creo funzione per le booleane
+          questions[questionNumber].incorrect_answers.forEach((element) => {
+            htmlAnswers = htmlAnswers +
+              `<button class="incorrect">${element}</button> \n`;
+          });
+          htmlAnswers = htmlAnswers +`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
+          document.getElementById("cnt-answers").innerHTML = htmlAnswers;
+          questionNumber += 1;
+          break;
+        default:
+          console.log("question type non gestito");
+          break;
+      }
+  
+      //aggiungo l'evento click ai bottoni contenente le domande errate
+      let incorrects = document.querySelectorAll(".incorrect");
+      incorrects.forEach((element) => {
+        element.addEventListener("click", function () {
+          wrongAnswers +=1;
+          nextQuestion();
+          onTimesUp();
         });
-        // legge e stampa la risposta corretta
-        htmlAnswers = htmlAnswers + `<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
-        document.getElementById("cnt-answers").innerHTML = htmlAnswers;
-        questionNumber += 1;
-        break;
-
-      case "boolean":
-        // creo funzione per le booleane
-        questions[questionNumber].incorrect_answers.forEach((element) => {
-          htmlAnswers = htmlAnswers +
-            `<button class="incorrect">${element}</button> \n`;
+      });
+      
+      //aggiungo l'evento click ai bottoni contenente le domande corrette
+      let corrects = document.querySelectorAll(".correct");
+  
+      corrects.forEach((element) => {
+        element.addEventListener("click", function () {
+          console.log("Correct multiple");
+          correctAnswers +=1;
+          nextQuestion();
+          onTimesUp();
         });
-        htmlAnswers = htmlAnswers +`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
-        document.getElementById("cnt-answers").innerHTML = htmlAnswers;
-        questionNumber += 1;
-        break;
-      default:
-        console.log("question type non gestito");
-        break;
+      });
+  
+      updateQuestionCounter();
+    } else {
+      console.log("Domande terminate");
+      console.log("domande errate:" + wrongAnswers);
+      console.log("domande corrette:" + correctAnswers);
+      document.getElementById("cnt-question").innerHTML = "";
+      document.getElementById("cnt-answers").innerHTML = "";
     }
-
-    //aggiungo l'evento click ai bottoni contenente le domande errate
-    let incorrects = document.querySelectorAll(".incorrect");
-    incorrects.forEach((element) => {
-      element.addEventListener("click", function () {
-        wrongAnswers +=1;
-        nextQuestion();
-      });
-    });
-    
-    //aggiungo l'evento click ai bottoni contenente le domande corrette
-    let corrects = document.querySelectorAll(".correct");
-
-    corrects.forEach((element) => {
-      element.addEventListener("click", function () {
-        console.log("Correct multiple");
-        correctAnswers +=1;
-        nextQuestion();
-      });
-    });
-
-    updateQuestionCounter();
-  } else {
-    console.log("Domande terminate");
-    console.log("domande errate:" + wrongAnswers);
-    console.log("domande corrette:" + correctAnswers);
-    document.getElementById("cnt-question").innerHTML = "";
-    document.getElementById("cnt-answers").innerHTML = "";
   }
-}
+  
+  //funzione per tenere aggiornato il contatore delle domande
+  function updateQuestionCounter() {
+    document.getElementsByClassName(
+      "cnt-question-counter"
+    )[0].innerHTML = ` QUESTION ${questionNumber} <span>/${questions.length} </span>`;
+  }
 
-//funzione per tenere aggiornato il contatore delle domande
-function updateQuestionCounter() {
-  document.getElementsByClassName(
-    "cnt-question-counter"
-  )[0].innerHTML = `QUESTION ${questionNumber} /  ${questions.length}`;
-}
+
+
+
+
