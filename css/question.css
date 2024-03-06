@@ -1,20 +1,27 @@
+/* 
+    Style question.css
+    Gruppo n. 2
+
+*/
+
 .container {
     padding-left: 4rem;
     padding-right: 4rem;
     margin-top: 4rem;
 }
 
-.cnt{
+.cnt {
     padding-left: 4rem;
     padding-right: 4rem;
 }
-.cnt-question{
+
+.cnt-question {
     color: #fff;
     font-weight: 600;
     font-size: 35px;
 }
 
-.answer{
+.answer {
     background-color: red;
     border: solid 1px #fff;
     border-radius: 25px;
@@ -27,7 +34,6 @@
 }
 
 /* countdown */
-
 #countdown {
     position: relative;
     margin: auto;
@@ -35,88 +41,90 @@
     height: 40px;
     width: 40px;
     text-align: center;
-  }
+}
   
-  #countdown-number {
-    color: white;
-    display: inline-block;
-    line-height: 40px;
-  }
+#countdown-number {
+	color: white;
+	display: inline-block;
+	line-height: 40px;
+}
   
-  svg {
-    position: absolute;
+svg {
+	position: absolute;
     top: 0;
     right: 0;
     width: 40px;
     height: 40px;
     transform: rotateY(-180deg) rotateZ(-90deg);
-  }
+}
   
-  svg circle {
-    stroke-dasharray: 113px;
+svg circle {
+	stroke-dasharray: 113px;
     stroke-dashoffset: 0px;
     stroke-linecap: round;
     stroke-width: 2px;
     stroke: white;
     fill: none;
     animation: countdown 10s linear infinite forwards;
-  }
+}
   
-  @keyframes countdown {
+@keyframes countdown {
     from {
-      stroke-dashoffset: 0px;
+    	stroke-dashoffset: 0px;
     }
     to {
-      stroke-dashoffset: 113px;
+    	stroke-dashoffset: 113px;
     }
-  }
+}
 
+ 
+/* bottoni */
+/* Ho modificato solo questa parte*/
+.cnt-answers button {
+	background-color: rgba(35, 41, 79, 0.35);
+ 	width: 300px;
+  	height: 60px;
+  	border-radius: 50px;
+  	cursor: pointer;
+  	transition: 0.3s;
+  	color: #fff;
+  	backdrop-filter: blur(7.5px);
+  	border: none;
+}
 
-/* 
-  bottoni */
-
-/*Ho modificato solo questa parte*/
-  .cnt-answers button {
-    background-color: rgba(35, 41, 79, 0.35);
-  width: 300px;
-  height: 60px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.3s;
-  color: #fff;
-  backdrop-filter: blur(7.5px);
-  border: none;
-  }
 /*Risolto il bug dei pulsanti*/
 .cnt-answers button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50px;
-  border: 3px solid transparent;
-  background: linear-gradient(180deg, #fff, transparent) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 50px;
+	border: 3px solid transparent;
+	background: linear-gradient(180deg, #fff, transparent) border-box;
+	-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+	mask-composite: exclude;
 }
-  .cnt-answers button:active {
-    background-color: rgba(199, 1, 144, 1);
-  }
+
+.cnt-answers button:active {
+	background-color: rgba(199, 1, 144, 1);
+}
+
 /*=====Fine modifica=====*/
-  .cnt-answers{
-    display: flex;
+.cnt-answers {
+	display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-  }
+}
 
+#cnt-answers p { 
+	z-index:999
+}
 
-  #cnt-answers p { z-index:999}
-
-  .cnt-question-counter{
-    color: white;
+.cnt-question-counter {
+	color: white;
     font-size: 35px;
     
-  }
+}
