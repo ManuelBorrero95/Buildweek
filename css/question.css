@@ -1,20 +1,27 @@
+/* 
+    Style question.css
+    Gruppo n. 2
+
+*/
+
 .container {
     padding-left: 4rem;
     padding-right: 4rem;
     margin-top: 4rem;
 }
 
-.cnt{
+.cnt {
     padding-left: 4rem;
     padding-right: 4rem;
 }
-.cnt-question{
+
+.cnt-question {
     color: #fff;
     font-weight: 600;
     font-size: 35px;
 }
 
-.answer{
+.answer {
     background-color: red;
     border: solid 1px #fff;
     border-radius: 25px;

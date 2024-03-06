@@ -1,41 +1,9 @@
 /* 
-    Style CSS
+    Style index.css
     Gruppo n. 2
 
 */
 
-/* Reset CSS */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Outfit", sans-serif;
-}
-
-/* Body */
-body {
-    background-image: url(/assets/bg.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;  
-}
-
-/* Header */
-header  {
-    padding: 4rem 0 0 6rem ;
-}
-
-/* Logo */
-.logo img {
-    height: 50px;
-}
-
-/* Container */
-.container {
-    padding-left: 6rem;
-    padding-right: 4rem;
-    margin-top: 4rem;
-}
 
 /* Titolo principale */
 .title  {
@@ -50,7 +18,7 @@ header  {
 }
 
 .title div:last-child {
-    font-weight: 600;
+    font-weight: 700;
     margin-top: -30px; 
 }
 
@@ -67,20 +35,16 @@ header  {
     font-size: 16px;
 }
 
-ul {
-    padding: 1.5rem;
-}
-
 .text p {
     color: #FFF;
     font-size: 16px;
 }
 
-.list ul {
-    margin-left: 6rem;
-}
-
 /* Elenco condizioni d'uso */
+ul li {
+    color: #FFF;
+    margin-left: 1rem;
+}
 ul li {
     color: #FFF;
 }
@@ -107,12 +71,14 @@ button {
     display: flex;
     gap: 10px;
 }
-
+ 
 .check input[type="checkbox"] {
     width: 1.3rem;
     height: 1.3rem;
-    border: 1px solid #FFF;
-    background-color: #00FFFF;
+    background-color: rgba(0, 0, 0, 0.08);
+    background: transparent;
+    border: 2px solid #FFF;
+    cursor: pointer;
 }
 
 /* Button stilizzato */
@@ -143,4 +109,49 @@ button {
     color: #FFF;
 }
 
+.comtent {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+   
+.comtent input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: 2px solid #FFF;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.comtent input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.comtent .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid #FFF;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

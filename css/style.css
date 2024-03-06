@@ -1,17 +1,37 @@
-*{
+/* 
+    Style principale CSS
+    Gruppo n. 2
+*/
+
+/* Reset CSS */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
 }
+
+/* Body */
 body {
     background-image: url(/assets/bg.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
- }
- header  {
-    padding: 4rem;
- }
+}
+
+/* Header */
+header  {
+    padding: 4rem 0 0 6rem;
+}
+
+/* Logo */
 .logo img {
-    height: 50px;
- }
+    height: 40px;
+}
+
+/* Container */
+.container {
+    padding-left: 6rem;
+    padding-right: 4rem;
+    margin-top: 4rem;
+}
