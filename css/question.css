@@ -75,27 +75,40 @@
 /* 
   bottoni */
 
-
+/*Ho modificato solo questa parte: Genesis*/
   .cnt-answers button {
     background-color: rgba(35, 41, 79, 0.35);
-    width: 300px;
-    height: 60px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-    color: #fff;
-    backdrop-filter: blur(7.5px);
-    -webkit-backdrop-filter: blur(7.5px);
-    outline: none;
-    border: 3px solid transparent;
-    background: linear-gradient(180deg, #fff, transparent) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-/*     -webkit-mask-composite: xor;
-    mask-composite: exclude; */
+  width: 300px;
+  height: 60px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  outline: none;
+  border: none;
   }
-  .optns button:active {
+/*Risolto il bug dei pulsanti*/
+.cnt-answers button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 3px solid transparent;
+  background: linear-gradient(180deg, #fff, transparent) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+  .cnt-answers button:active {
     background-color: rgba(199, 1, 144, 1);
   }
+/*=====Fine modifica=====*/
   .cnt-answers{
     display: flex;
     flex-wrap: wrap;
