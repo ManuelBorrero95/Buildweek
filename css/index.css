@@ -4,6 +4,13 @@
 
 */
 
+/* Container */
+.container {
+    padding-left: 6rem;
+    padding-right: 4rem;
+    margin-top: 4rem;
+    font-family: "Outfit", sans-serif;
+}
 
 /* Titolo principale */
 .title  {
@@ -43,17 +50,22 @@
 /* Elenco condizioni d'uso */
 ul li {
     color: #FFF;
-    margin-left: 1rem;
+    margin-left: 1.2rem;
 }
 ul li {
     color: #FFF;
 }
 
+.list span {
+    font-weight: 800;
+}
+
+
+/* Button inizo esame */
 label {
     color: #FFF;
 }
 
-/* Button inizo esame */
 button {
     padding: 20px;
 }
@@ -147,8 +159,8 @@ button {
 }
   
 .comtent .checkmark:after {
-    left: 9px;
-    top: 5px;
+    left: 7px;
+    top: 1px;
     width: 6px;
     height: 12px;
     border: solid #FFF;

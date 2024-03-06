@@ -100,41 +100,40 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 
 
-  // aspetto il caricamento del documento e prendo la prima domanda dell'array delle domande
-  nextQuestion();
-  updateQuestionCounter();
+// aspetto il caricamento del documento e prendo la prima domanda dell'array delle domande
+nextQuestion();
+updateQuestionCounter();
 
 
 
 
-  //timer
+//timer
 
-
-  const FULL_DASH_ARRAY = 283;
-  const WARNING_THRESHOLD = 10;
-  const ALERT_THRESHOLD = 5;
+const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
+ 
+const COLOR_CODES = {
+  info: {
+    color: "green"
+  },
+  warning: {
+    color: "orange",
+    threshold: WARNING_THRESHOLD
+  },
+  alert: {
+    color: "red",
+    threshold: ALERT_THRESHOLD
+  }
+};
   
-  const COLOR_CODES = {
-    info: {
-      color: "green"
-    },
-    warning: {
-      color: "orange",
-      threshold: WARNING_THRESHOLD
-    },
-    alert: {
-      color: "red",
-      threshold: ALERT_THRESHOLD
-    }
-  };
+const TIME_LIMIT = 60;
+let timePassed = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let remainingPathColor = COLOR_CODES.info.color;
   
-  const TIME_LIMIT = 120;
-  let timePassed = 0;
-  let timeLeft = TIME_LIMIT;
-  let timerInterval = null;
-  let remainingPathColor = COLOR_CODES.info.color;
-  
-  document.getElementById("app").innerHTML = `
+document.getElementById("app").innerHTML = `
   <div class="base-timer">
     <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <g class="base-timer__circle">
@@ -157,169 +156,148 @@ let wrongAnswers = 0;
       <span id="base-timer-label" class="base-timer__label">${formatTime(timeLeft)}</span>
       <span>REMAINING</span>
     </div>
-
   </div>
-
-  `;
+`;
   
+startTimer();
+  
+function onTimesUp() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = 30;
+  document.getElementById("base-timer-path-remaining").classList.remove("red");
+  document.getElementById("base-timer-path-remaining").classList.add("green");     
+  nextQuestion();
   startTimer();
+};
   
-  function onTimesUp() {
-     clearInterval(timerInterval);
-     timePassed = 0;
-     timeLeft = 30;
-     document.getElementById("base-timer-path-remaining").classList.remove("red");
-     document.getElementById("base-timer-path-remaining").classList.add("green");     
-     nextQuestion();
-     startTimer();
-
-  }
-  
-  function startTimer() {
-    timerInterval = setInterval(() => {
-      timePassed = timePassed += 1;
-      timeLeft = TIME_LIMIT - timePassed;
-      document.getElementById("base-timer-label").innerHTML = formatTime(
-        timeLeft
-      );
-      setCircleDasharray();
-      setRemainingPathColor(timeLeft); 
-  
-      if (timeLeft === 0) {
-        onTimesUp();
-      }
-    }, 1000);
-  }
-  
-  function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    let seconds = time;
-  
-    if (seconds < 10) {
-      seconds = `0${seconds}`;
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timePassed = timePassed += 1;
+    timeLeft = TIME_LIMIT - timePassed;
+    document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+    setCircleDasharray();
+    setRemainingPathColor(timeLeft); 
+    
+    if (timeLeft === 0) {
+      onTimesUp();
     }
+    }, 1000);
+};
   
-    return `${seconds}`;
+function formatTime(time) {
+  // const minutes = Math.floor(time / 60);
+  let seconds = time;
+  
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
   }
+  return `${seconds}`;
+};
   
 function setRemainingPathColor(timeLeft) {
-    const { alert, warning, info } = COLOR_CODES;
-    if (timeLeft <= alert.threshold) {
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.remove(warning.color);
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.add(alert.color);
-    } else if (timeLeft <= warning.threshold) {
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.remove(info.color);
-      document
-        .getElementById("base-timer-path-remaining")
-        .classList.add(warning.color);
-    }
-  } 
-  
-  function calculateTimeFraction() {
-    const rawTimeFraction = timeLeft / TIME_LIMIT;
-    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+  const { alert, warning, info } = COLOR_CODES;
+  if (timeLeft <= alert.threshold) {
+    document.getElementById("base-timer-path-remaining").classList.remove(warning.color);
+    document.getElementById("base-timer-path-remaining").classList.add(alert.color);
+  } else if (timeLeft <= warning.threshold) {
+    document.getElementById("base-timer-path-remaining").classList.remove(info.color);
+    document.getElementById("base-timer-path-remaining").classList.add(warning.color);
   }
+}; 
   
-  function setCircleDasharray() {
-    const circleDasharray = `${(
-      calculateTimeFraction() * FULL_DASH_ARRAY
-    ).toFixed(0)} 283`;
-    document
-      .getElementById("base-timer-path-remaining")
-      .setAttribute("stroke-dasharray", circleDasharray);
-  }
+function calculateTimeFraction() {
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+};
+  
+function setCircleDasharray() {
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+  document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
+};
 
 
-  //fine timer
+//fine timer
 
 /* 
-        Questa funziona utilizza la varibiale questionNumber per estrarre dall'array 
-        delle domanda la domanda e le relative risposte 
-    */
+    Questa funziona utilizza la varibiale questionNumber per estrarre dall'array 
+    delle domanda la domanda e le relative risposte 
+*/
 
-  function nextQuestion() {
-    if (questionNumber < questions.length) {
-      // legge e stampa su display la domanda
-      let htmlAnswers = "";
-      let htmlQuestion = `<div class="cnt-question">
-                          ${questions[questionNumber].question}
-                          </div>`;
+function nextQuestion() {
+  if (questionNumber < questions.length) {
+    // legge e stampa su display la domanda
+    let htmlAnswers = "";
+    let htmlQuestion = `<div class="cnt-question">
+                        ${questions[questionNumber].question}
+                        </div>`;
   
-      document.getElementById("cnt-question").innerHTML = htmlQuestion;
-      switch (questions[questionNumber].type) {
-        case "multiple":
-          // ciclo for per leggere il contenuto delle risposte sbagliate
-          questions[questionNumber].incorrect_answers.forEach((element) => {
-            htmlAnswers =
-              htmlAnswers + `<button class="incorrect">${element}</button> \n`;
-          });
-          // legge e stampa la risposta corretta
-          htmlAnswers = htmlAnswers + `<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
-          document.getElementById("cnt-answers").innerHTML = htmlAnswers;
-          questionNumber += 1;
-          break;
-  
-        case "boolean":
-          // creo funzione per le booleane
-          questions[questionNumber].incorrect_answers.forEach((element) => {
-            htmlAnswers = htmlAnswers +
-              `<button class="incorrect">${element}</button> \n`;
-          });
-          htmlAnswers = htmlAnswers +`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
-          document.getElementById("cnt-answers").innerHTML = htmlAnswers;
-          questionNumber += 1;
-          break;
-        default:
-          console.log("question type non gestito");
-          break;
-      }
-  
-      //aggiungo l'evento click ai bottoni contenente le domande errate
-      let incorrects = document.querySelectorAll(".incorrect");
-      incorrects.forEach((element) => {
-        element.addEventListener("click", function () {
-          wrongAnswers +=1;
-          nextQuestion();
-          onTimesUp();
+    document.getElementById("cnt-question").innerHTML = htmlQuestion;
+    switch (questions[questionNumber].type) {
+      case "multiple":
+        // ciclo for per leggere il contenuto delle risposte sbagliate
+        questions[questionNumber].incorrect_answers.forEach((element) => {
+          htmlAnswers = htmlAnswers + `<button class="incorrect">${element}</button> \n`;
         });
-      });
-      
-      //aggiungo l'evento click ai bottoni contenente le domande corrette
-      let corrects = document.querySelectorAll(".correct");
+        // legge e stampa la risposta corretta
+        htmlAnswers = htmlAnswers + `<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
+        document.getElementById("cnt-answers").innerHTML = htmlAnswers;
+        questionNumber += 1;
+        console.log(questionNumber);
+        break;
   
-      corrects.forEach((element) => {
-        element.addEventListener("click", function () {
-          console.log("Correct multiple");
-          correctAnswers +=1;
-          nextQuestion();
-          onTimesUp();
+      case "boolean":
+        // creo funzione per le booleane
+        questions[questionNumber].incorrect_answers.forEach((element) => {
+          htmlAnswers = htmlAnswers + `<button class="incorrect">${element}</button> \n`;
         });
-      });
-  
-      updateQuestionCounter();
-    } else {
-      console.log("Domande terminate");
-      console.log("domande errate:" + wrongAnswers);
-      console.log("domande corrette:" + correctAnswers);
-      document.getElementById("cnt-question").innerHTML = "";
-      document.getElementById("cnt-answers").innerHTML = "";
+        htmlAnswers = htmlAnswers +`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
+        document.getElementById("cnt-answers").innerHTML = htmlAnswers;
+        questionNumber += 1;
+        console.log(questionNumber);
+        break;
+      default:
+        console.log("question type non gestito");
+        break;
     }
-  }
   
-  //funzione per tenere aggiornato il contatore delle domande
-  function updateQuestionCounter() {
-    document.getElementsByClassName(
-      "cnt-question-counter"
-    )[0].innerHTML = ` QUESTION ${questionNumber} <span>/${questions.length} </span>`;
+    //aggiungo l'evento click ai bottoni contenente le domande errate
+    let incorrects = document.querySelectorAll(".incorrect");
+    incorrects.forEach((element) => {
+      element.addEventListener("click", function () {
+        wrongAnswers += 1;
+        // nextQuestion();
+        onTimesUp();
+      });
+    });
+      
+    //aggiungo l'evento click ai bottoni contenente le domande corrette
+    let corrects = document.querySelectorAll(".correct");
+  
+    corrects.forEach((element) => {
+      element.addEventListener("click", function () {
+        console.log("Correct multiple");
+        correctAnswers += 1;
+        // nextQuestion();
+        onTimesUp();
+      });
+    });
+  
+    updateQuestionCounter();
+  } else {
+    console.log("Domande terminate");
+    console.log("domande errate:" + wrongAnswers);
+    console.log("domande corrette:" + correctAnswers);
+    document.getElementById("cnt-question").innerHTML = "";
+    document.getElementById("cnt-answers").innerHTML = "";
   }
-
-
-
-
-
+}
+  
+//funzione per tenere aggiornato il contatore delle domande
+function updateQuestionCounter() {
+  document.getElementsByClassName(
+    "cnt-question-counter"
+  )[0].innerHTML = ` QUESTION ${questionNumber} <span>/${questions.length} </span>`;
+}
