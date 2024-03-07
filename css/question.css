@@ -3,6 +3,12 @@
     Gruppo n. 2
 
 */
+/*=== Header ===*/
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
 /*=== Contenitore ===*/
 .cnt {
   padding-left: 4rem;
@@ -25,6 +31,7 @@
 }
 
 /*=== Bottoni ===*/
+
 /*=== Div pulsanti ===*/
 .cnt-answers {
   width: 800px;
@@ -41,7 +48,7 @@
   backdrop-filter: blur(7.5px);
   border: none;
 }
-
+/*=== Pseudo-elemento bottone ===*/
 .cnt-answers button::before {
   content: "";
   position: absolute;
@@ -55,12 +62,13 @@
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
-
+/*=== Colore bottoni click ===*/
 .cnt-answers button:active {
-  background-color: rgba(199, 1, 144, 1);
+  background-color: #D20094;
 }
-/*=== Fine tile bottoni ===*/
-/*Margine pulsanti*/
+/*===/// Fine tile bottoni \\\===*/
+
+/*=== Margine pulsanti ===*/
 .cnt-answers button:first-child,
 .cnt-answers button:nth-child(3) {
   margin-right: 2rem;
@@ -70,9 +78,9 @@
 .cnt-answers button:nth-child(2) {
   margin-bottom: 1rem;
 }
-/*///Fine margine pulsanti\\\*/
+/*===///Fine margine pulsanti\\\===*/
 
-/*=====Fine Bottoni=====*/
+/*===///Fine Bottoni\\\====*/
 /* .cnt {
   display: flex;
   flex-direction: column;
@@ -93,20 +101,18 @@
   font-weight: 700;
   font-size: 1.3rem;
 }
-/*=== Fine stile contatore domande ===*/
-header {
-  display: flex;
-  justify-content: space-around;
-}
+/*===/// Fine stile contatore domande \\\===*/
 
-/* countdown */
+/*=== Countdown ===*/
 
+/*=== Div Timer ===*/
 .base-timer {
   position: relative;
   width: 100px;
   height: 100px;
 }
 
+/*=== Stile svg timer ===*/
 .base-timer__svg {
   transform: scaleX(-1);
 }
@@ -130,15 +136,15 @@ header {
   fill-rule: nonzero;
   stroke: currentColor;
 }
-
+/*=== Colore iniziale del timer ===*/
 .base-timer__path-remaining.green {
   color: #00FFFF;
 }
-
+/*=== Colore rimanente del timer ===*/
 .base-timer__path-remaining.orange {
   color: orange;
 }
-
+/*=== Colore allo scadere del timer ===*/
 .base-timer__path-remaining.red {
   color: red;
 }
@@ -164,4 +170,4 @@ header {
     justify-content: center;
     font-size: 32px;
   }
-/* fine countdown */
+/*===/// Fine countdown \\\===*/
