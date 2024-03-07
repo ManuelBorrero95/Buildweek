@@ -242,9 +242,9 @@ function nextQuestion() {
       case "multiple":
         // ciclo for per leggere il contenuto delle risposte sbagliate
         questions[questionNumber].incorrect_answers.forEach((element) => {
-        answersArray.push(`<button class="incorrect">${element}</button> \n`);
+        answersArray.push(`<button class="asd">${element}</button> \n`);
         });
-        answersArray.push(`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`);
+        answersArray.push(`<button class="qwe">${questions[questionNumber].correct_answer}</button> \n`);
         randomAnswers = answersArray.slice().sort(() => Math.random() - 0.5);
         console.table (randomAnswers);
         randomAnswers.forEach(element => {htmlAnswers = htmlAnswers + element  } ) 
@@ -257,9 +257,9 @@ function nextQuestion() {
       case "boolean":
         // creo funzione per le booleane
         questions[questionNumber].incorrect_answers.forEach((element) => {
-          answersArray.push(`<button class="incorrect">${element}</button> \n`);
+          answersArray.push(`<button class="asd">${element}</button> \n`);
         });
-        answersArray.push(`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`);
+        answersArray.push(`<button class="qwe">${questions[questionNumber].correct_answer}</button> \n`);
         randomAnswers = answersArray.slice().sort(() => Math.random() - 0.5);
         console.table (randomAnswers);
         randomAnswers.forEach(element => {htmlAnswers = htmlAnswers + element  } ) 
@@ -273,7 +273,7 @@ function nextQuestion() {
     }
   
     //aggiungo l'evento click ai bottoni contenente le domande errate
-    let incorrects = document.querySelectorAll(".incorrect");
+    let incorrects = document.querySelectorAll(".asd");
     incorrects.forEach((element) => {
       element.addEventListener("click", function () {
         wrongAnswers += 1;
@@ -283,7 +283,7 @@ function nextQuestion() {
     });
       
     //aggiungo l'evento click ai bottoni contenente le domande corrette
-    let corrects = document.querySelectorAll(".correct");
+    let corrects = document.querySelectorAll(".qwe");
   
     corrects.forEach((element) => {
       element.addEventListener("click", function () {
@@ -334,3 +334,9 @@ function updateQuestionCounter() {
     "cnt-question-counter"
   )[0].innerHTML = ` QUESTION ${questionNumber} <span>/${questions.length} </span>`;
 }
+
+document.addEventListener("mouseleave", function(){document.getElementsByClassName("errore")[0].style.display = "block"});
+
+document.getElementsByClassName("reset")[0].addEventListener("click", function() {
+   document.getElementsByClassName("errore")[0].style.display = "none"
+});
