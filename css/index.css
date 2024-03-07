@@ -148,17 +148,17 @@ button {
     border: 2px solid #FFF;
 }
   
-.checkmark:after {
+.checkmark::after {
     content: "";
     position: absolute;
     display: none;
 }
   
-.comtent input:checked ~ .checkmark:after {
+.comtent input:checked ~ .checkmark::after {
     display: block;
 }
   
-.comtent .checkmark:after {
+.comtent .checkmark::after {
     left: 7px;
     top: 1px;
     width: 6px;
@@ -168,8 +168,9 @@ button {
     transform: rotate(45deg);
 }
 
+/* messaggio di errore */
 .msg-error{
     display: none;
-    color: red;
-    font-weight: 800;
+    color: #d20094;
+    font-weight: 600;
 }

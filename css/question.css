@@ -4,9 +4,15 @@
 
 */
 /*=== Header ===*/
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
 header {
   display: flex;
   justify-content: space-around;
+  /* font-family: "Inter", sans-serif; */
 }
 
 /*=== Contenitore ===*/
@@ -14,7 +20,7 @@ header {
   padding-left: 4rem;
   padding-right: 4rem;
   margin-top: 4rem;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
   display: flex;
   flex-direction: column;
   text-align: center;
