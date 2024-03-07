@@ -230,30 +230,39 @@ function nextQuestion() {
   if (questionNumber < questions.length) {
     // legge e stampa su display la domanda
     let htmlAnswers = "";
+    let answersArray = [];
+    let randomAnswers = [];
     let htmlQuestion = `<div class="cnt-question">
                         ${questions[questionNumber].question}
                         </div>`;
   
     document.getElementById("cnt-question").innerHTML = htmlQuestion;
+    
     switch (questions[questionNumber].type) {
       case "multiple":
         // ciclo for per leggere il contenuto delle risposte sbagliate
         questions[questionNumber].incorrect_answers.forEach((element) => {
-          htmlAnswers = htmlAnswers + `<button class="incorrect">${element}</button> \n`;
+        answersArray.push(`<button class="incorrect">${element}</button> \n`);
         });
+        answersArray.push(`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`);
+        randomAnswers = answersArray.slice().sort(() => Math.random() - 0.5);
+        console.table (randomAnswers);
+        randomAnswers.forEach(element => {htmlAnswers = htmlAnswers + element  } ) 
         // legge e stampa la risposta corretta
-        htmlAnswers = htmlAnswers + `<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
         document.getElementById("cnt-answers").innerHTML = htmlAnswers;
         questionNumber += 1;
         console.log(questionNumber);
         break;
-  
+      // eventuale case per layout diverso
       case "boolean":
         // creo funzione per le booleane
         questions[questionNumber].incorrect_answers.forEach((element) => {
-          htmlAnswers = htmlAnswers + `<button class="incorrect">${element}</button> \n`;
+          answersArray.push(`<button class="incorrect">${element}</button> \n`);
         });
-        htmlAnswers = htmlAnswers +`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`;
+        answersArray.push(`<button class="correct">${questions[questionNumber].correct_answer}</button> \n`);
+        randomAnswers = answersArray.slice().sort(() => Math.random() - 0.5);
+        console.table (randomAnswers);
+        randomAnswers.forEach(element => {htmlAnswers = htmlAnswers + element  } ) 
         document.getElementById("cnt-answers").innerHTML = htmlAnswers;
         questionNumber += 1;
         console.log(questionNumber);
