@@ -171,3 +171,18 @@ header {
     font-size: 32px;
   }
 /*===/// Fine countdown \\\===*/
+
+/* Visualizza risultati esame */
+
+#esito-finale {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #FFF;
+}
+
+#esito-finale span {
+  margin-bottom: 20px;
+}

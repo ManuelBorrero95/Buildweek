@@ -292,6 +292,30 @@ function nextQuestion() {
     console.log("domande corrette:" + correctAnswers);
     document.getElementById("cnt-question").innerHTML = "";
     document.getElementById("cnt-answers").innerHTML = "";
+
+    // Visualizzazione su document html risultati esame
+    if (correctAnswers >= 6) {
+      // Nascondo la visualizzazione del timer su document html
+      document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
+      document.getElementsByClassName("timer-label-container")[0].style.display = "none";
+      document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
+      let esitoFinale = `<div id="esito-finale">
+                          <span>Superato!</span> 
+                          <span>${(correctAnswers/10)*100}%</span>
+                          <span>${correctAnswers}/10 domande</span>
+                        </div>`;
+      document.getElementById("esito-finale").innerHTML = esitoFinale;
+    } else {
+      document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
+      document.getElementsByClassName("timer-label-container")[0].style.display = "none";
+      document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
+      let esitoFinale = `<div id="esito-finale">
+                          <span>Insufficiente!</span>
+                          <span>${(correctAnswers/10)*100}%</span>
+                          <span>${correctAnswers}/10 domande</span>
+                          </div>`;
+      document.getElementById("esito-finale").innerHTML = esitoFinale;
+    }
   }
 }
   
