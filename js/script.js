@@ -158,7 +158,7 @@ document.getElementById("app").innerHTML = `
     </div>
   </div>
 `;
-  
+ //Avvio timer 
 startTimer();
   
 function onTimesUp() {
@@ -170,7 +170,7 @@ function onTimesUp() {
   nextQuestion();
   startTimer();
 };
-  
+ //Funzione avvio timer 
 function startTimer() {
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
@@ -184,7 +184,7 @@ function startTimer() {
     }
     }, 1000);
 };
-  
+ //Funzione per formattare il tempo rimanente 
 function formatTime(time) {
   // const minutes = Math.floor(time / 60);
   let seconds = time;
@@ -194,7 +194,7 @@ function formatTime(time) {
   }
   return `${seconds}`;
 };
-  
+  //Funzione per impostare il colore del timer in base al tempo rimanente
 function setRemainingPathColor(timeLeft) {
   const { alert, warning, info } = COLOR_CODES;
   if (timeLeft <= alert.threshold) {
@@ -205,7 +205,7 @@ function setRemainingPathColor(timeLeft) {
     document.getElementById("base-timer-path-remaining").classList.add(warning.color);
   }
 }; 
-  
+  //Funzione per calcolare la frazione di tempo rimanente
 function calculateTimeFraction() {
   const rawTimeFraction = timeLeft / TIME_LIMIT;
   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
