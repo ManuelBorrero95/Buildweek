@@ -3,14 +3,19 @@
     Gruppo n. 2
 
 */
-
+/*=== Contenitore ===*/
 .cnt {
   padding-left: 4rem;
   padding-right: 4rem;
   margin-top: 4rem;
   font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
-
+/*=== Div Domande ===*/
 .cnt-question {
   color: #fff;
   font-weight: 600;
@@ -19,8 +24,12 @@
   margin-top: 5rem;
 }
 
-/* bottoni */
-/* Ho modificato solo questa parte*/
+/*=== Bottoni ===*/
+/*=== Div pulsanti ===*/
+.cnt-answers {
+  width: 800px;
+}
+/*=== Stile bottoni ===*/
 .cnt-answers button {
   background-color: rgba(35, 41, 79, 0.15);
   width: 300px;
@@ -33,7 +42,6 @@
   border: none;
 }
 
-/*Risolto il bug dei pulsanti*/
 .cnt-answers button::before {
   content: "";
   position: absolute;
@@ -51,20 +59,8 @@
 .cnt-answers button:active {
   background-color: rgba(199, 1, 144, 1);
 }
-
-/*=====Fine modifica=====*/
-.cnt {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.cnt-answers {
-  width: 800px;
-}
-
+/*=== Fine tile bottoni ===*/
+/*Margine pulsanti*/
 .cnt-answers button:first-child,
 .cnt-answers button:nth-child(3) {
   margin-right: 2rem;
@@ -74,7 +70,17 @@
 .cnt-answers button:nth-child(2) {
   margin-bottom: 1rem;
 }
+/*///Fine margine pulsanti\\\*/
 
+/*=====Fine Bottoni=====*/
+/* .cnt {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+} */
+/*=== Stile contatore domande ===*/
 .cnt-question-counter {
   color: white;
   font-size: 1.3rem;
@@ -87,7 +93,7 @@
   font-weight: 700;
   font-size: 1.3rem;
 }
-
+/*=== Fine stile contatore domande ===*/
 header {
   display: flex;
   justify-content: space-around;
