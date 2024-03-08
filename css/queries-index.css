@@ -1,0 +1,121 @@
+/*Scherm sotto 1200px*/
+@media (max-width: 75em) {
+    html {
+        font-size: 72.5%;
+    }
+    .proceedBtn {
+        margin-bottom: 20.5rem!important;
+    }
+    
+     ul li {
+        font-size: 1.3rem;
+    }
+    .text p {
+        font-size: 2.2rem;
+    }
+    .checkDiv {
+        display: flex;
+       
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    .proceedBtn {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .proceedBtn button {
+        margin-top: 3rem;
+    }
+    .comtent {
+        margin-bottom: 17rem;
+        margin-right: 1.8rem;
+    }
+  
+
+}
+/*Schermo sotto 944px*/
+@media (max-width: 59em) {
+    html {
+        font-size: 65%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .checkDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .checkDiv label {
+        margin-bottom: 1rem;
+    }
+    .proceedBtn {
+        margin-bottom: 20.5rem!important;
+    }
+    
+    .list ul li {
+        font-size: 2rem;
+    }
+    .text p {
+        font-size: 2.6rem;
+    
+}
+}
+
+/*Schermo sotto 704px*/
+@media (max-width: 44em) {
+    html {
+        font-size: 60%;
+    }
+    .checkDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .proceedBtn {
+        margin-bottom: 20.5rem!important;
+    }
+    
+    .list ul li {
+        font-size: 1rem;
+    }
+    .text p {
+        font-size: 1.6rem;
+    
+}
+}
+
+
+
+
+/*Cell*/
+@media (max-width: 34em) {
+    .checkDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+    }
+    .proceedBtn {
+        margin-bottom: 20.5rem!important;
+    }
+    
+    .list ul li {
+        font-size: 1rem;
+    }
+    .text p {
+        font-size: 1.6rem;
+    
+}
+}
