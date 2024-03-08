@@ -27,6 +27,7 @@
     <title>EPICODE - Examen</title>
 </head>
 <body>
+    
     <!--Inizio header-->
     <header>
         <!--Div logo-->
@@ -39,32 +40,40 @@
    </header>
      <!--///Fine header\\\-->
      <!--Contenitore-->
-    <div class="cnt">
-        <!--Div domande del quiz-->
-        <div id="cnt-question" class="cnt-question">
+    
+        <div class="cnt">
+        
+            <!--Div domande del quiz-->
+            <div id="cnt-question" class="cnt-question">
+            </div>
+            <!--Div pulsanti del quiz-->
+            <div id="cnt-answers" class="cnt-answers">
+            </div>
+            <!--Div contatore delle domande-->
+            <div class="cnt-question-counter">
+            </div>
+            <!-- Esito finale -->
+            <div id="cntEsito">
+                <div id="esito-finale"></div>
+                <div>
+                    <canvas id="myChart" width="300"></canvas>
+                </div>
+            </div>
+            <buttom id="back">Back to Home</buttom>
+    
         </div>
-        <!--Div pulsanti del quiz-->
-        <div id="cnt-answers" class="cnt-answers">
-        </div>
-         <!--Div contatore delle domande-->
-        <div class="cnt-question-counter">
-        </div>
-        <!-- Esito finale -->
-        <div id="esito-finale"></div>
-        <div>
-            <canvas id="myChart" width="500"></canvas>
-        </div>
-        <buttom id="back">Back to Home</buttom>
-    </div>
+    
     <div class="errore">
         <p>You left the page, I warned you...</p>
         <button class="reset">Reload the page</button>
     </div>
+   
     <!--Fine contenitore-->
     <!--Script dentro la cartella js-->
     <script src="./js/script.js"></script>
 
     <!-- Framework Chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 </html>

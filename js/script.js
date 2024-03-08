@@ -340,9 +340,9 @@ function updateQuestionCounter() {
 };
 
 // funzione errore se il mouse esce dalla finestra
-   document.addEventListener("mouseleave", function() {
-   document.getElementsByClassName("errore")[0].style.display = "block";
-});
+   // document.addEventListener("mouseleave", function() {
+   //document.getElementsByClassName("errore")[0].style.display = "block";
+//});
 
 // 
   document.getElementsByClassName("reset")[0].addEventListener("click", function() {
