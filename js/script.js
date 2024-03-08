@@ -105,10 +105,7 @@ nextQuestion();
 updateQuestionCounter();
 
 
-
-
 //timer
-
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
@@ -170,7 +167,8 @@ function onTimesUp() {
   nextQuestion();
   startTimer();
 };
- //Funzione avvio timer 
+
+//Funzione avvio timer 
 function startTimer() {
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
@@ -184,7 +182,8 @@ function startTimer() {
     }
     }, 1000);
 };
- //Funzione per formattare il tempo rimanente 
+
+//Funzione per formattare il tempo rimanente 
 function formatTime(time) {
   // const minutes = Math.floor(time / 60);
   let seconds = time;
@@ -194,7 +193,8 @@ function formatTime(time) {
   }
   return `${seconds}`;
 };
-  //Funzione per impostare il colore del timer in base al tempo rimanente
+
+//Funzione per impostare il colore del timer in base al tempo rimanente
 function setRemainingPathColor(timeLeft) {
   const { alert, warning, info } = COLOR_CODES;
   if (timeLeft <= alert.threshold) {
@@ -205,7 +205,8 @@ function setRemainingPathColor(timeLeft) {
     document.getElementById("base-timer-path-remaining").classList.add(warning.color);
   }
 }; 
-  //Funzione per calcolare la frazione di tempo rimanente
+
+// Funzione per calcolare la frazione di tempo rimanente
 function calculateTimeFraction() {
   const rawTimeFraction = timeLeft / TIME_LIMIT;
   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
@@ -272,7 +273,7 @@ function nextQuestion() {
         break;
     }
   
-    //aggiungo l'evento click ai bottoni contenente le domande errate
+    // aggiungo l'evento click ai bottoni contenente le domande errate
     let incorrects = document.querySelectorAll(".asd");
     incorrects.forEach((element) => {
       element.addEventListener("click", function () {
@@ -282,7 +283,7 @@ function nextQuestion() {
       });
     });
       
-    //aggiungo l'evento click ai bottoni contenente le domande corrette
+    // aggiungo l'evento click ai bottoni contenente le domande corrette
     let corrects = document.querySelectorAll(".qwe");
   
     corrects.forEach((element) => {
@@ -301,13 +302,14 @@ function nextQuestion() {
     console.log("domande corrette:" + correctAnswers);
     document.getElementById("cnt-question").innerHTML = "";
     document.getElementById("cnt-answers").innerHTML = "";
+    
+    // Nascondo la visualizzazione del timer su document html
+    document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
+    document.getElementsByClassName("timer-label-container")[0].style.display = "none";
+    document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
 
     // Visualizzazione su document html risultati esame
-    if (correctAnswers >= 6) {
-      // Nascondo la visualizzazione del timer su document html
-      document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
-      document.getElementsByClassName("timer-label-container")[0].style.display = "none";
-      document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
+    if (correctAnswers >= 6) {      
       let esitoFinale = `<div id="esito-finale">
                           <span>Superato!</span> 
                           <span>${(correctAnswers/10)*100}%</span>
@@ -315,9 +317,6 @@ function nextQuestion() {
                         </div>`;
       document.getElementById("esito-finale").innerHTML = esitoFinale;
     } else {
-      document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
-      document.getElementsByClassName("timer-label-container")[0].style.display = "none";
-      document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
       let esitoFinale = `<div id="esito-finale">
                           <span>Insufficiente!</span>
                           <span>${(correctAnswers/10)*100}%</span>
@@ -326,17 +325,20 @@ function nextQuestion() {
       document.getElementById("esito-finale").innerHTML = esitoFinale;
     }
   }
-}
+};
   
-//funzione per tenere aggiornato il contatore delle domande
+// funzione per tenere aggiornato il contatore delle domande
 function updateQuestionCounter() {
   document.getElementsByClassName(
     "cnt-question-counter"
-  )[0].innerHTML = ` QUESTION ${questionNumber} <span>/${questions.length} </span>`;
-}
+  )[0].innerHTML = `QUESTION ${questionNumber} <span>/${questions.length} </span>`;
+};
 
-document.addEventListener("mouseleave", function(){document.getElementsByClassName("errore")[0].style.display = "block"});
+document.addEventListener("mouseleave", function() {
+  document.getElementsByClassName("errore")[0].style.display = "block";
+});
 
 document.getElementsByClassName("reset")[0].addEventListener("click", function() {
-   document.getElementsByClassName("errore")[0].style.display = "none"
+  document.getElementsByClassName("errore")[0].style.display = "none";
+  window.location.href = "./index.html";
 });
