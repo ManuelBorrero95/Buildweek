@@ -108,6 +108,7 @@ header {
   font-weight: 700;
   font-size: 1.3rem;
 }
+
 /*===/// Fine stile contatore domande \\\===*/
 
 /*=== Countdown ===*/
@@ -233,5 +234,25 @@ header {
 
 .reset:hover {
   background-color: #D20094;
+}
+
+#back {
+  display: none;
+  padding: 15px;
+  border: 1px solid #FFF;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-left: 30%;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 1.3rem;
+}
+
+#back:hover {
+  background-color: #D20094;
+}
+
+#myChart {
+  margin-top: 20px;
 }
 

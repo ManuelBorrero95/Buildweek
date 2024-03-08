@@ -263,7 +263,7 @@ function nextQuestion() {
         answersArray.push(`<button class="qwe">${questions[questionNumber].correct_answer}</button> \n`);
         randomAnswers = answersArray.slice().sort(() => Math.random() - 0.5);
         console.table (randomAnswers);
-        randomAnswers.forEach(element => {htmlAnswers = htmlAnswers + element  } ) 
+        randomAnswers.forEach(element => {htmlAnswers = htmlAnswers + element}) 
         document.getElementById("cnt-answers").innerHTML = htmlAnswers;
         questionNumber += 1;
         console.log(questionNumber);
@@ -307,15 +307,18 @@ function nextQuestion() {
     document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
     document.getElementsByClassName("timer-label-container")[0].style.display = "none";
     document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
-
+    
+    // Richiama la funzione per creare il grafico doughnut
+    chartResult(wrongAnswers, correctAnswers);
     // Visualizzazione su document html risultati esame
-    if (correctAnswers >= 6) {      
+    if (correctAnswers >= 6) {  
       let esitoFinale = `<div id="esito-finale">
                           <span>Superato!</span> 
                           <span>${(correctAnswers/10)*100}%</span>
                           <span>${correctAnswers}/10 domande</span>
                         </div>`;
       document.getElementById("esito-finale").innerHTML = esitoFinale;
+      document.getElementById("back").style.display = "block";
     } else {
       let esitoFinale = `<div id="esito-finale">
                           <span>Insufficiente!</span>
@@ -323,6 +326,8 @@ function nextQuestion() {
                           <span>${correctAnswers}/10 domande</span>
                           </div>`;
       document.getElementById("esito-finale").innerHTML = esitoFinale;
+      document.getElementById("back").style.display = "block";
+      
     }
   }
 };
@@ -334,11 +339,45 @@ function updateQuestionCounter() {
   )[0].innerHTML = `QUESTION ${questionNumber} <span>/${questions.length} </span>`;
 };
 
+// funzione errore se il mause esce dalla finestra
 document.addEventListener("mouseleave", function() {
   document.getElementsByClassName("errore")[0].style.display = "block";
 });
 
+// 
 document.getElementsByClassName("reset")[0].addEventListener("click", function() {
   document.getElementsByClassName("errore")[0].style.display = "none";
   window.location.href = "./index.html";
 });
+
+document.getElementById("back").addEventListener("click", function() {
+  console.log("sono qui dentro")
+  window.location.href = "./index.html";
+});
+
+
+
+function chartResult(wrongAnswers, correctAnswers) {
+  // Inserisco i risultati in un array
+  let result = [];
+  result.push(correctAnswers);
+  result.push(wrongAnswers);
+  
+  const ctx = document.getElementById('myChart');
+              
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Correct', 'Incorrect'],
+      datasets: [{
+        data: result,
+        borderWidth: 1,
+        backgroundColor: ["green", "orange"],
+      }]
+    },
+    options: {
+      animation: false
+    }
+  });
+};
+
