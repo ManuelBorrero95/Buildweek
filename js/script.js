@@ -373,7 +373,7 @@ function chartResult(wrongAnswers, correctAnswers) {
         data: result,
         borderWidth: 1.5,
         borderColor: "white",
-        backgroundColor: ["#55A630", "#D00000"],
+        backgroundColor: ["#6FF500", "#FF7400"],
       }]
     },
     options: {
