@@ -1,0 +1,57 @@
+/*Scherm sotto 1200px*/
+@media (max-width: 75em) {
+    html {
+        font-size: 72.5%;
+    }
+    .cnt-question {
+        color: #fff;
+        font-weight: 600;
+        font-size: 35px;
+        margin: 0 1.5rem 2rem 1.5rem;
+    }
+    .cnt-answers {
+        width: 800px;
+        margin: 0 auto;
+      }
+
+}
+/*Schermo sotto 944px*/
+@media (max-width: 59em) {
+    html {
+        font-size: 65%;
+    }
+}
+
+/*Schermo sotto 704px*/
+@media (max-width: 44em) {
+    html {
+        font-size: 60%;
+    }
+    .cnt,
+    .cnt-answers {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        
+    }
+    .cnt-question {
+        color: #fff;
+        font-weight: 600;
+        font-size: 35px;
+        margin: 0 1.5rem 2rem 1.5rem;
+    }
+    .cnt-answers {
+        width: 500px;
+       display: flex;
+       flex-direction: column;
+      }
+
+  
+}
+
+/*Cell*/
+@media (max-width: 34em) {
+    
+}
