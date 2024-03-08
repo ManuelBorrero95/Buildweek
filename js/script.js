@@ -339,13 +339,13 @@ function updateQuestionCounter() {
   )[0].innerHTML = `QUESTION ${questionNumber} <span>/${questions.length} </span>`;
 };
 
-// funzione errore se il mause esce dalla finestra
-document.addEventListener("mouseleave", function() {
-  document.getElementsByClassName("errore")[0].style.display = "block";
+// funzione errore se il mouse esce dalla finestra
+   document.addEventListener("mouseleave", function() {
+   document.getElementsByClassName("errore")[0].style.display = "block";
 });
 
 // 
-document.getElementsByClassName("reset")[0].addEventListener("click", function() {
+  document.getElementsByClassName("reset")[0].addEventListener("click", function() {
   document.getElementsByClassName("errore")[0].style.display = "none";
   window.location.href = "./index.html";
 });
@@ -371,8 +371,9 @@ function chartResult(wrongAnswers, correctAnswers) {
       labels: ['Correct', 'Incorrect'],
       datasets: [{
         data: result,
-        borderWidth: 1,
-        backgroundColor: ["green", "orange"],
+        borderWidth: 1.5,
+        borderColor: "white",
+        backgroundColor: ["#55A630", "#D00000"],
       }]
     },
     options: {
