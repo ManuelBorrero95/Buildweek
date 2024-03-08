@@ -77,7 +77,7 @@ header {
 /*===/// Fine tile bottoni \\\===*/
 
 /*=== Margine pulsanti ===*/
-.cnt-answers button:first-child,
+/*.cnt-answers button:first-child,
 .cnt-answers button:nth-child(3) {
   margin-right: 2rem;
 }
@@ -85,6 +85,12 @@ header {
 .cnt-answers button:first-child,
 .cnt-answers button:nth-child(2) {
   margin-bottom: 1rem;
+}*/
+.cnt-answers {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gird-template-rows: repeat(2, 1fr);
+gap: 1rem;
 }
 /*===///Fine margine pulsanti\\\===*/
 
