@@ -69,7 +69,8 @@ header {
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
-/*=== Colore bottoni click ===*/
+/*=== Colore bottoni hover / click ===*/
+.cnt-answers button:hover,
 .cnt-answers button:active {
   background-color: #D20094;
 }
