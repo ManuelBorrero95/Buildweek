@@ -98,6 +98,7 @@ const questions = [
 let questionNumber = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let wrongSkip = 0;
 
 
 // aspetto il caricamento del documento e prendo la prima domanda dell'array delle domande
@@ -302,6 +303,11 @@ function nextQuestion() {
     console.log("domande corrette:" + correctAnswers);
     document.getElementById("cnt-question").innerHTML = "";
     document.getElementById("cnt-answers").innerHTML = "";
+
+    if (wrongAnswers + correctAnswers !== 10) {
+      wrongSkip = 10 - (wrongAnswers + correctAnswers);
+      console.log("domande skippate: " + wrongSkip);
+    }
     
     // Nascondo la visualizzazione del timer su document html
     document.getElementsByClassName("base-timer__svg ")[0].style.display = "none";
@@ -309,7 +315,7 @@ function nextQuestion() {
     document.getElementsByClassName("cnt-question-counter")[0].style.display = "none";
     
     // Richiama la funzione per creare il grafico doughnut
-    chartResult(wrongAnswers, correctAnswers);
+    chartResult(wrongAnswers, correctAnswers, wrongSkip);
     // Visualizzazione su document html risultati esame
     if (correctAnswers >= 6) {  
       let esitoFinale = `<div id="esito-finale">
@@ -357,23 +363,25 @@ document.getElementById("back").addEventListener("click", function() {
 
 
 
-function chartResult(wrongAnswers, correctAnswers) {
+function chartResult(wrongAnswers, correctAnswers, wrongSkip) {
   // Inserisco i risultati in un array
   let result = [];
   result.push(correctAnswers);
   result.push(wrongAnswers);
+  result.push(wrongSkip);
+
   
   const ctx = document.getElementById('myChart');
               
   new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: ['Correct', 'Incorrect'],
+      labels: ['Correct', 'Incorrect', 'Jump'],
       datasets: [{
         data: result,
         borderWidth: 1.5,
         borderColor: "white",
-        backgroundColor: ["#6FF500", "#FF7400"],
+        backgroundColor: ["#6FF500", "#FF7400", "#d64161"],
       }]
     },
     options: {
